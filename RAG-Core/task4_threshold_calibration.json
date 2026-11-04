@@ -1,0 +1,53 @@
+{
+  "collection": "nykaa_fixed_chunks",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 3,
+  "calibration_queries": [
+    {
+      "query": "How many business days does a COD refund take?",
+      "label": "in_scope",
+      "top1_similarity": 0.81334388256073,
+      "top1_source": "cod_refund.md"
+    },
+    {
+      "query": "What is the return window for footwear?",
+      "label": "in_scope",
+      "top1_similarity": 0.6022213697433472,
+      "top1_source": "return_window.md"
+    },
+    {
+      "query": "How long does standard domestic delivery usually take?",
+      "label": "in_scope",
+      "top1_similarity": 0.7032096982002258,
+      "top1_source": "delivery_sla.md"
+    },
+    {
+      "query": "When can a customer request a size exchange?",
+      "label": "in_scope",
+      "top1_similarity": 0.700228214263916,
+      "top1_source": "size_exchange.md"
+    },
+    {
+      "query": "What should a customer do if payment was deducted but no order was created?",
+      "label": "in_scope",
+      "top1_similarity": 0.6429713368415833,
+      "top1_source": "payment_failure.md"
+    },
+    {
+      "query": "Explain how black holes form in distant galaxies.",
+      "label": "out_of_scope",
+      "top1_similarity": 0.07217592000961304,
+      "top1_source": "escalation_matrix.md"
+    },
+    {
+      "query": "What ingredients are needed to bake a chocolate cake?",
+      "label": "out_of_scope",
+      "top1_similarity": 0.0585971474647522,
+      "top1_source": "warranty.md"
+    }
+  ],
+  "lowest_in_scope_similarity": 0.6022213697433472,
+  "highest_out_of_scope_similarity": 0.07217592000961304,
+  "chosen_threshold": 0.3371986448764801,
+  "threshold_method": "midpoint between lowest in-scope and highest out-of-scope top-1 cosine similarity"
+}
