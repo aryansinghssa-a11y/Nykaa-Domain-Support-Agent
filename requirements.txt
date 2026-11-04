@@ -1,0 +1,26 @@
+# Core application and agent framework
+langgraph>=1.2.0
+langgraph-checkpoint-sqlite
+fastapi
+uvicorn[standard]
+pydantic
+
+# Retrieval-augmented generation and vector database
+chromadb
+sentence-transformers
+
+# Data processing and machine learning
+numpy
+pandas
+scikit-learn
+
+# MCP integration
+fastmcp
+
+# HTTP/API testing and notebook execution
+requests
+jupyter
+ipykernel
+
+# Optional: load environment variables from a local .env file
+python-dotenv
