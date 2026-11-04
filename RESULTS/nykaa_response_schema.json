@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NykaaSupportAgentResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "conversation_id",
+    "query",
+    "intent",
+    "answer",
+    "sources",
+    "order_details",
+    "escalation"
+  ],
+  "properties": {
+    "conversation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "query": {
+      "type": "string",
+      "minLength": 1
+    },
+    "intent": {
+      "type": "string",
+      "enum": [
+        "policy",
+        "order"
+      ]
+    },
+    "answer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "order_details": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "record_id",
+            "status",
+            "order_value_inr"
+          ],
+          "properties": {
+            "record_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "status": {
+              "type": "string",
+              "minLength": 1
+            },
+            "order_value_inr": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        }
+      ]
+    },
+    "escalation": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "score",
+            "threshold",
+            "requires_escalation"
+          ],
+          "properties": {
+            "score": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "threshold": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "requires_escalation": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "intent": {
+            "const": "policy"
+          }
+        },
+        "required": [
+          "intent"
+        ]
+      },
+      "then": {
+        "properties": {
+          "order_details": {
+            "type": "null"
+          },
+          "escalation": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "intent": {
+            "const": "order"
+          },
+          "order_details": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "intent",
+          "order_details"
+        ]
+      },
+      "then": {
+        "properties": {
+          "escalation": {
+            "type": "object"
+          },
+          "sources": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "intent": {
+            "const": "order"
+          },
+          "order_details": {
+            "type": "null"
+          }
+        },
+        "required": [
+          "intent",
+          "order_details"
+        ]
+      },
+      "then": {
+        "properties": {
+          "escalation": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
+}

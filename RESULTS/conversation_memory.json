@@ -1,0 +1,205 @@
+{
+  "demo_customer_001": [
+    {
+      "role": "user",
+      "content": "Please help me with order ORD1001.",
+      "timestamp": "2026-11-04T19:29:45.277610+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "Order ORD1001 has status Delivered. Order value: ₹8,205.00. Escalation score: 0.00. This order does not meet the project's escalation threshold.",
+      "timestamp": "2026-11-04T19:29:45.277610+00:00",
+      "metadata": {
+        "intent": "order",
+        "record_id": "ORD1001",
+        "sources": [
+          "orders dataset (synthetic project data)"
+        ]
+      }
+    },
+    {
+      "role": "user",
+      "content": "What is its status?",
+      "timestamp": "2026-11-04T19:29:45.298124+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "Order ORD1001 has status Delivered. Order value: ₹8,205.00. Escalation score: 0.00. This order does not meet the project's escalation threshold.",
+      "timestamp": "2026-11-04T19:29:45.298124+00:00",
+      "metadata": {
+        "intent": "order",
+        "record_id": "ORD1001",
+        "sources": [
+          "orders dataset (synthetic project data)"
+        ]
+      }
+    }
+  ],
+  "demo_customer_002": [
+    {
+      "role": "user",
+      "content": "What is its status?",
+      "timestamp": "2026-11-04T19:29:45.339845+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "Please provide an order ID.",
+      "timestamp": "2026-11-04T19:29:45.339845+00:00",
+      "metadata": {
+        "intent": "order",
+        "record_id": null,
+        "sources": []
+      }
+    }
+  ],
+  "task11_order_demo": [
+    {
+      "role": "user",
+      "content": "Please check order ORD1001.",
+      "timestamp": "2026-11-04T19:59:50.493583+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "Order ORD1001 has status Delivered. Order value: ₹8,205.00. Escalation score: 0.00. This order does not meet the project's escalation threshold.",
+      "timestamp": "2026-11-04T19:59:50.493583+00:00"
+    }
+  ],
+  "task11_policy_demo": [
+    {
+      "role": "user",
+      "content": "How long does a cash-on-delivery refund take?",
+      "timestamp": "2026-11-04T19:59:50.549512+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "According to the available project policy documents:\n\n[cod_refund.md] # Cash-on-Delivery (COD) Refund Timelines\n\nFor this simulated support environment, an approved COD refund is issued through the bank-account or UPI details collected during the refund process. The expected processing time is 5–7 business days after the returned item passes the required inspection. If the refund has not arrived after 7 business days, the customer should contact support with the order ID and refund reference, if available.\n\n[delivery_sla.md] # Delivery Service-Level Agreements\n\nFor this synthetic project, standard domestic orders have an estimated delivery window of 3–7 business days from shipment confirmation. Remote delivery locations may require up to 10 business days, and the estimate can change because of weather, operational disruption, or courier constraints. The customer should use the order-tracking status as the latest available shipment update and contact support if the order remains unchanged beyond the estimated window.\n\n[return_window.md] # Return Window by Product Category\n\nThese synthetic project rules allow eligible Apparel and Footwear items to be requested for return within 7 calendar days of delivery, provided they are unused and retain their original tags and packaging. Eligible Home products may be requested for return within 5 calendar days of delivery if they are unused and complete. Beauty and personal-care products are treated as non-returnable after delivery for hygiene reasons, except when the item is damaged, defective, or incorrect; Electronics return requests must be reviewed against the product-specific eligibility conditions before approval.",
+      "timestamp": "2026-11-04T19:59:50.549512+00:00"
+    }
+  ],
+  "task11_pii_demo": [
+    {
+      "role": "user",
+      "content": "My phone is [PHONE_MASKED] and card last 4 is [CARD_LAST4_MASKED]. How long does a COD refund take?",
+      "timestamp": "2026-11-04T19:59:50.617445+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "According to the available project policy documents:\n\n[cod_refund.md] # Cash-on-Delivery (COD) Refund Timelines\n\nFor this simulated support environment, an approved COD refund is issued through the bank-account or UPI details collected during the refund process. The expected processing time is 5–7 business days after the returned item passes the required inspection. If the refund has not arrived after 7 business days, the customer should contact support with the order ID and refund reference, if available.\n\n[damaged_item.md] # Damaged-Item Claim Process\n\nA customer who receives a damaged, defective, or incorrect item should raise a claim within 48 hours of delivery under this synthetic project rule. The customer should provide the order ID and clear photographs showing the issue and the item packaging, while avoiding photographs that expose payment-card details or other sensitive information. Support reviews the evidence and communicates whether a replacement, return, or refund is appropriate under the applicable project policy.\n\n[payment_failure.md] # Payment-Failure and Retry Policy\n\nIf a payment attempt fails, the customer should first check whether the bank or payment provider has deducted the amount before attempting another payment. If the amount was deducted but the order was not created, the transaction should be checked against the payment provider's confirmation and the project support process. Customers should avoid repeated rapid payment attempts and should never share their full card number, PIN, CVV, or one-time passcode with support.",
+      "timestamp": "2026-11-04T19:59:50.617445+00:00"
+    }
+  ],
+  "api_demo": [
+    {
+      "role": "user",
+      "content": "string",
+      "timestamp": "2026-11-04T20:22:27.232330+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "I don't know based on the available policy documents.",
+      "timestamp": "2026-11-04T20:22:27.232330+00:00"
+    },
+    {
+      "role": "user",
+      "content": "string",
+      "timestamp": "2026-11-04T20:23:00.077699+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "I don't know based on the available policy documents.",
+      "timestamp": "2026-11-04T20:23:00.077699+00:00"
+    },
+    {
+      "role": "user",
+      "content": "string",
+      "timestamp": "2026-11-04T20:42:55.160078+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "According to the available project policy documents:\n\n[string] stringstringstringst\n\n[api_test_policy.md] # API Ingestion Test Policy\n\n[reverse_pickup.md] # Reverse-Pickup Eligibility\n\nA reverse pickup may be arranged for an order only after the return request has been approved and the item meets the applicable category return conditions. The item should be packed securely with its accessories, tags, and original packaging wherever applicable. If the pickup attempt fails, the customer should contact support to confirm the pickup address and arrange another attempt.",
+      "timestamp": "2026-11-04T20:42:55.160078+00:00"
+    },
+    {
+      "role": "user",
+      "content": "string",
+      "timestamp": "2026-11-04T20:42:58.931645+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "According to the available project policy documents:\n\n[string] stringstringstringst\n\n[api_test_policy.md] # API Ingestion Test Policy\n\n[reverse_pickup.md] # Reverse-Pickup Eligibility\n\nA reverse pickup may be arranged for an order only after the return request has been approved and the item meets the applicable category return conditions. The item should be packed securely with its accessories, tags, and original packaging wherever applicable. If the pickup attempt fails, the customer should contact support to confirm the pickup address and arrange another attempt.",
+      "timestamp": "2026-11-04T20:42:58.931645+00:00"
+    }
+  ],
+  "customer_001": [
+    {
+      "role": "user",
+      "content": "How long does a cash-on-delivery refund take?",
+      "timestamp": "2026-11-04T20:26:29.891598+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "According to the available project policy documents:\n\n[cod_refund.md] # Cash-on-Delivery (COD) Refund Timelines\n\nFor this simulated support environment, an approved COD refund is issued through the bank-account or UPI details collected during the refund process. The expected processing time is 5–7 business days after the returned item passes the required inspection. If the refund has not arrived after 7 business days, the customer should contact support with the order ID and refund reference, if available.\n\n[delivery_sla.md] # Delivery Service-Level Agreements\n\nFor this synthetic project, standard domestic orders have an estimated delivery window of 3–7 business days from shipment confirmation. Remote delivery locations may require up to 10 business days, and the estimate can change because of weather, operational disruption, or courier constraints. The customer should use the order-tracking status as the latest available shipment update and contact support if the order remains unchanged beyond the estimated window.\n\n[return_window.md] # Return Window by Product Category\n\nThese synthetic project rules allow eligible Apparel and Footwear items to be requested for return within 7 calendar days of delivery, provided they are unused and retain their original tags and packaging. Eligible Home products may be requested for return within 5 calendar days of delivery if they are unused and complete. Beauty and personal-care products are treated as non-returnable after delivery for hygiene reasons, except when the item is damaged, defective, or incorrect; Electronics return requests must be reviewed against the product-specific eligibility conditions before approval.",
+      "timestamp": "2026-11-04T20:26:29.891598+00:00"
+    }
+  ],
+  "customer_002": [
+    {
+      "role": "user",
+      "content": "Please check order ORD1001.",
+      "timestamp": "2026-11-04T20:27:26.729084+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "Order ORD1001 has status Delivered. Order value: ₹8,205.00. Escalation score: 0.00. This order does not meet the project's escalation threshold.",
+      "timestamp": "2026-11-04T20:27:26.729084+00:00"
+    }
+  ],
+  "task12_policy_test": [
+    {
+      "role": "user",
+      "content": "How long does a cash-on-delivery refund take?",
+      "timestamp": "2026-11-04T20:37:39.911676+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "According to the available project policy documents:\n\n[cod_refund.md] # Cash-on-Delivery (COD) Refund Timelines\n\nFor this simulated support environment, an approved COD refund is issued through the bank-account or UPI details collected during the refund process. The expected processing time is 5–7 business days after the returned item passes the required inspection. If the refund has not arrived after 7 business days, the customer should contact support with the order ID and refund reference, if available.\n\n[delivery_sla.md] # Delivery Service-Level Agreements\n\nFor this synthetic project, standard domestic orders have an estimated delivery window of 3–7 business days from shipment confirmation. Remote delivery locations may require up to 10 business days, and the estimate can change because of weather, operational disruption, or courier constraints. The customer should use the order-tracking status as the latest available shipment update and contact support if the order remains unchanged beyond the estimated window.\n\n[return_window.md] # Return Window by Product Category\n\nThese synthetic project rules allow eligible Apparel and Footwear items to be requested for return within 7 calendar days of delivery, provided they are unused and retain their original tags and packaging. Eligible Home products may be requested for return within 5 calendar days of delivery if they are unused and complete. Beauty and personal-care products are treated as non-returnable after delivery for hygiene reasons, except when the item is damaged, defective, or incorrect; Electronics return requests must be reviewed against the product-specific eligibility conditions before approval.",
+      "timestamp": "2026-11-04T20:37:39.911676+00:00"
+    }
+  ],
+  "task12_order_test": [
+    {
+      "role": "user",
+      "content": "Please check order ORD1001.",
+      "timestamp": "2026-11-04T20:37:39.929277+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "Order ORD1001 has status Delivered. Order value: ₹8,205.00. Escalation score: 0.00. This order does not meet the project's escalation threshold.",
+      "timestamp": "2026-11-04T20:37:39.929277+00:00"
+    }
+  ],
+  "task12_pii_test": [
+    {
+      "role": "user",
+      "content": "My phone is [PHONE_MASKED] and my payment card last 4 is [CARD_LAST4_MASKED]. How long does a COD refund take?",
+      "timestamp": "2026-11-04T20:37:40.064457+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "According to the available project policy documents:\n\n[cod_refund.md] # Cash-on-Delivery (COD) Refund Timelines\n\nFor this simulated support environment, an approved COD refund is issued through the bank-account or UPI details collected during the refund process. The expected processing time is 5–7 business days after the returned item passes the required inspection. If the refund has not arrived after 7 business days, the customer should contact support with the order ID and refund reference, if available.\n\n[payment_failure.md] # Payment-Failure and Retry Policy\n\nIf a payment attempt fails, the customer should first check whether the bank or payment provider has deducted the amount before attempting another payment. If the amount was deducted but the order was not created, the transaction should be checked against the payment provider's confirmation and the project support process. Customers should avoid repeated rapid payment attempts and should never share their full card number, PIN, CVV, or one-time passcode with support.\n\n[damaged_item.md] # Damaged-Item Claim Process\n\nA customer who receives a damaged, defective, or incorrect item should raise a claim within 48 hours of delivery under this synthetic project rule. The customer should provide the order ID and clear photographs showing the issue and the item packaging, while avoiding photographs that expose payment-card details or other sensitive information. Support reviews the evidence and communicates whether a replacement, return, or refund is appropriate under the applicable project policy.",
+      "timestamp": "2026-11-04T20:37:40.064457+00:00"
+    }
+  ],
+  "logging_test_002": [
+    {
+      "role": "user",
+      "content": "My phone is [PHONE_MASKED] and my payment card last 4 is [CARD_LAST4_MASKED]. How long does a COD refund take?",
+      "timestamp": "2026-11-04T20:43:29.832867+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "According to the available project policy documents:\n\n[cod_refund.md] # Cash-on-Delivery (COD) Refund Timelines\n\nFor this simulated support environment, an approved COD refund is issued through the bank-account or UPI details collected during the refund process. The expected processing time is 5–7 business days after the returned item passes the required inspection. If the refund has not arrived after 7 business days, the customer should contact support with the order ID and refund reference, if available.\n\n[payment_failure.md] # Payment-Failure and Retry Policy\n\nIf a payment attempt fails, the customer should first check whether the bank or payment provider has deducted the amount before attempting another payment. If the amount was deducted but the order was not created, the transaction should be checked against the payment provider's confirmation and the project support process. Customers should avoid repeated rapid payment attempts and should never share their full card number, PIN, CVV, or one-time passcode with support.\n\n[damaged_item.md] # Damaged-Item Claim Process\n\nA customer who receives a damaged, defective, or incorrect item should raise a claim within 48 hours of delivery under this synthetic project rule. The customer should provide the order ID and clear photographs showing the issue and the item packaging, while avoiding photographs that expose payment-card details or other sensitive information. Support reviews the evidence and communicates whether a replacement, return, or refund is appropriate under the applicable project policy.",
+      "timestamp": "2026-11-04T20:43:29.832867+00:00"
+    }
+  ]
+}

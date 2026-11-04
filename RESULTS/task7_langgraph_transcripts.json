@@ -1,0 +1,32 @@
+{
+  "task": "Task 7 — LangGraph conditional routing",
+  "policy_route": {
+    "query": "How long does a cash-on-delivery refund take?",
+    "intent": "policy",
+    "sources": [
+      "cod_refund.md",
+      "delivery_sla.md",
+      "return_window.md"
+    ],
+    "answer": "According to the available project policy documents, the relevant information is:\n\n[cod_refund.md] # Cash-on-Delivery (COD) Refund Timelines\n\nFor this simulated support environment, an approved COD refund is issued through the bank-account or UPI details collected during the refund process. The expected processing time is 5–7 business days after the returned item passes the required inspection. If the refund has not arrived after 7 business days, the customer should contact support with the order ID and refund reference, if available.\n\n[delivery_sla.md] # Delivery Service-Level Agreements\n\nFor this synthetic project, standard domestic orders have an estimated delivery window of 3–7 business days from shipment confirmation. Remote delivery locations may require up to 10 business days, and the estimate can change because of weather, operational disruption, or courier constraints. The customer should use the order-tracking status as the latest available shipment update and contact support if the order remains unchanged beyond the estimated window.\n\n[return_window.md] # Return Window by Product Category\n\nThese synthetic project rules allow eligible Apparel and Footwear items to be requested for return within 7 calendar days of delivery, provided they are unused and retain their original tags and packaging. Eligible Home products may be requested for return within 5 calendar days of delivery if they are unused and complete. Beauty and personal-care products are treated as non-returnable after delivery for hygiene reasons, except when the item is damaged, defective, or incorrect; Electronics return requests must be reviewed against the product-specific eligibility conditions before approval."
+  },
+  "order_route": {
+    "query": "Can you check the status of order ORD1001?",
+    "intent": "order",
+    "order_result": {
+      "found": true,
+      "record_id": "ORD1001",
+      "status": "Delivered",
+      "order_value_inr": 8205.0,
+      "escalation_score": 0.0,
+      "escalation_threshold": 0.722,
+      "requires_escalation": false
+    },
+    "answer": "Order ORD1001 has status: Delivered. Order value: ₹8,205.00. Escalation score: 0.00. This order does not currently meet the project's escalation threshold."
+  },
+  "missing_order_id_route": {
+    "query": "Please check my order status.",
+    "intent": "order",
+    "answer": "Please provide your order ID (for example, ORD1014) so I can check its status."
+  }
+}
