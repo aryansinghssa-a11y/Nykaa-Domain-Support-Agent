@@ -1,0 +1,11 @@
+{
+  "formula": "0.70 * delayed_signal + 0.30 * (days_since_created / 30)",
+  "delay_weight": 0.7,
+  "recency_weight": 0.3,
+  "normalization_max_days": 30,
+  "threshold_method": "80th percentile of composite escalation_score in generated dataset",
+  "threshold_value": 0.722,
+  "number_of_orders": 50,
+  "number_recommended_for_escalation": 10,
+  "flagged_percentage": 20.0
+}
